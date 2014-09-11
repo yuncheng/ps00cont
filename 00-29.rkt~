@@ -1,0 +1,11 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-beginner-reader.ss" "lang")((modname 00-29) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f ())))
+(require 2htdp/image)
+
+; EX 29
+; group-photo: listOfPeople -> image
+; GIVEN: a list of people as defined in EX 21
+; RETURNS: an image of these people beside each other in a group photo
+
+

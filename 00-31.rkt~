@@ -1,0 +1,25 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-beginner-reader.ss" "lang")((modname 00-31) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f ())))
+(require 2htdp/image)
+(define-struct point (x y)) 
+; EX 26
+; draw-circles: ListOfNumbers -> ListOfImage
+; GIVEN: a list of points
+; RETURNS: a 300x300 scene with solid blue circles of radius 10 at every point on the list
+
+(define (draw-circles lst)
+(cond
+  ; When done drawing the circles, draw a rectangle scene that crops 
+  ; the resulting image so that it has the same size as scene
+  [(empty? lst) (rectangle 300 300 "solid" "yellow")]
+  ; Recursively draw the circles using (place-image image x y scene)
+  ; where the scene is the next recursion
+  [else (place-image
+      (circle 10 "solid" "blue")
+      (point-x (first lst)) (point-y (first lst)) ; position of first point
+      (draw-circles (rest lst)))]
+  ))
+
+; Test:
+(draw-circles (list (make-point 50 30) (make-point 100 300) (make-point 294 90)))

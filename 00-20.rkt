@@ -1,0 +1,46 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-beginner-reader.ss" "lang")((modname 00-20) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f ())))
+(require 2htdp/image)
+; EX 20
+; Draw a human shape from circles and rectangles
+
+; using above and beside
+(define human-shape
+  (above
+   (above (circle 15 "solid" "red")
+          (beside (rectangle 10 65 "solid" "red")
+                  (rectangle 1 65 "solid" "white")
+                  (rectangle 30 65 "solid" "red") 
+                  (rectangle 1 65 "solid" "white")
+                  (rectangle 10 65 "solid" "red")))
+   (beside (rectangle 10 65 "solid" "white")
+           (rectangle 14 65 "solid" "red")
+           (rectangle 3 60 "solid" "white") 
+           (rectangle 14 65 "solid" "red")
+           (rectangle 10 65 "solid" "white")))
+  )
+
+; Test:
+human-shape
+
+#|
+; using overlay/offset
+(define human
+(overlay/offset 
+ (overlay/offset 
+  (overlay/offset 
+   (overlay/offset 
+    (overlay/offset (circle 15 "solid" "black")
+        0 45
+        (rectangle 30 60 "solid" "black"))
+       -21 18
+       (rectangle 10 65 "solid" "black"))
+     27 16
+     (rectangle 10 65 "solid" "black"))
+    -8 75
+   (rectangle 14 65 "solid" "black"))
+  8 45
+  (rectangle 14 65 "solid" "black"))
+)
+|#
