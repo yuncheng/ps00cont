@@ -3,6 +3,7 @@
 #reader(lib "htdp-beginner-reader.ss" "lang")((modname 00-21) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f ())))
 (require 2htdp/image)
 (require "00-20.rkt")
+(require "extras.rkt")
 
 ; EX 21
 (define-struct person (first-name last-name age height weight))
@@ -17,7 +18,6 @@
 ; human-shape: a human shape made from circles and rectangles
 ; the default human-shape has dimensions 52x160 pixels
 ; From EX 20:
-(provide human-shape)
 
 
 ; person-image: person -> image
